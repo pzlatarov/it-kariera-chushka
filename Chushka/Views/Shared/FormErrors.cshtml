@@ -1,0 +1,15 @@
+﻿@if (ViewData.ModelState != null && !ViewData.ModelState.IsValid)
+{
+    <div class="alert-danger">
+        <ul>
+            @foreach (var state in ViewData.ModelState.Values)
+            {
+                @foreach (var error in state.Errors)
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+
+            }
+        </ul>
+    </div>
+}

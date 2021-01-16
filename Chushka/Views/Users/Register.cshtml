@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "User Registration";
+}
+@model Chushka.Models.ViewModels.RegisterModel
+
+<h1 class="text-center">Register</h1>
+<hr class="bg-secondary half-width" />
+
+@Html.Partial("FormErrors",Model)
+
+@*<form class="mx-auto half-width" method="post" action="/users/login">*@
+@using (Html.BeginForm("Register", "Users", FormMethod.Post, new { @class = "mx-auto half-width" }))
+{
+    <div class="form-group">
+        @*<label for="username">Username</label>*@
+        @Html.LabelFor(m => m.Username, new { @class = "dummy" })
+        @*<input type="text" class="form-control" id="username" placeholder="Username..." name="username">*@
+        @Html.TextBoxFor(m => m.Username, new { @class = "form-control", @placeholder = "Username..." })
+
+    </div>
+    <div class="form-group">
+        @*<label for="password">Password</label>*@
+        @Html.LabelFor(m => m.Password)
+        @*<input type="password" class="form-control" id="password" placeholder="Password..." name="password">*@
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password..." })
+    </div>
+    <div class="form-group">
+        @*<label for="confirmPassword">Confirm Password</label>*@
+        @Html.LabelFor(m => m.ConfirmPassword)
+        @*<input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password..." name="confirmPassword">*@
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password..." })
+    </div>
+    <div class="form-group">
+        @*<label for="fullName">Full name</label>*@
+        @Html.LabelFor(m => m.FullName)
+        @*<input type="text" class="form-control" id="fullName" placeholder="Full Name..." name="fullName">*@
+        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Full Name..." })
+    </div>
+    <div class="form-group">
+        @*<label for="email">Email</label>*@
+        @Html.LabelFor(m => m.Email)
+        @*<input type="email" class="form-control" id="email" placeholder="Email..." name="email">*@
+        @Html.TextBoxFor(m=>m.Email, new { @class = "form-control", placeholder = "Email..." })
+    </div>
+    <div class="button-holder d-flex justify-content-center">
+        <button type="submit" class="btn chushka-bg-color">Register</button>
+    </div>
+}
+@*</form>*@
